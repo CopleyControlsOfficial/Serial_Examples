@@ -83,14 +83,6 @@ def SendAsciiCmd(ser, cmd):
     print("ASCII Cmd Sent: " + cmd)
     return SerReadASCIIResponse(ser)
 
-# To properly change the baud rate, the drive's response to this command
-# must be ignored.
-def ChangeBaudRate(ser, cmd):
-    cmd = cmd + '\r'
-    ser.write(cmd.encode())
-    print("ASCII Cmd Sent: " + cmd)
-    return print("Baud Rate Changed")
-
 # Collects all ASCII responses from drive
 def SerReadASCIIResponse(ser):
     ret = ser.readline()
