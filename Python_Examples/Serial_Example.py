@@ -97,7 +97,7 @@ def ReadSerialBinaryResponse(ser):
     ret = []
     while (True):
         ch = ser.read(1)
-        if (len(ch) < 1 or ch == '\r'):
+        if (len(ch) < 1 or str(ch, 'utf-8') == '\r'):
             print("Serial Binary Response: " + (" ".join(ret)))
             return(ret)
         ch = ch.hex()
