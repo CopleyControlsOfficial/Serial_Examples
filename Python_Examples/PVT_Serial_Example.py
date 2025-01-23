@@ -115,7 +115,7 @@ def SerReadLine(ser):
    ret = ''
    while( True ):
       ch = ser.read(1)
-      if( len(ch) < 1 or ch == '\r' ):
+      if (len(ch) < 1 or str(ch, 'utf-8') == '\r'):
          #print("Returned value is: " + ret)
          return ret
       ret += str(ch, 'utf-8')
